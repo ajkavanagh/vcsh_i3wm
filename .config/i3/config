@@ -31,6 +31,10 @@ font pango:System San Francisco Display 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Let's have some bigger borders
+new_window pixel 3
+hide_edge_borders none
+
 # Alt + button1 == rightclick
 bindsym --whole-window $alt+button1 exec --no-startup-id "sleep 0.2 && xdotool click 3"
 
@@ -49,6 +53,7 @@ bindsym $mod+Shift+q kill
 
 # alternatively, there is rofi
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -opacity "85" -padding 100 -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
@@ -98,7 +103,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+z focus child
 
 # Set up variables for workspaces
 set $wm1 "1:"
@@ -164,16 +169,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 1 ppt
+        bindsym j resize grow height 10 px or 1 ppt
+        bindsym k resize shrink height 10 px or 1 ppt
+        bindsym l resize grow width 10 px or 1 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 1 ppt
+        bindsym Down resize grow height 10 px or 1 ppt
+        bindsym Up resize shrink height 10 px or 1 ppt
+        bindsym Right resize grow width 10 px or 1 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -195,6 +200,22 @@ bar {
                 statusline #DCDCDC
 	}
 }
+
+# colours for the borders
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+#colors:                border  backgr. text    indicator
+#client.focused          #007030 #007030 #ffffff #2b2b2b
+#client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
+#client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
+#client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 # we like Natural scrolling a la Mac, so set it up.
 exec_always --no-startup-id synclient VertScrollDelta=-113
@@ -224,7 +245,9 @@ bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/keyboard-backlight up
 
 
 # Mod+Shift+l == Lock screen.
-bindsym $mod+Shift+x exec i3lock
+#bindsym $mod+Shift+x exec i3lock --color 000000
+bindsym $mod+Shift+x exec --no-startup-id "~/bin/fuzzy-lock.sh"
+exec --no-startup-id xautolock -time 15 -locker '~/bin/fuzzy-lock.sh' &
 
 # We pretty much always want quasselclient running, and on it's desktop
 assign [class="quassel"] $wm10
@@ -257,6 +280,11 @@ exec --no-startup-id /usr/bin/redshift-gtk
 
 # A nice wallpaper for the desktop
 #exec_always feh --bg-scale /home/alex/....
+
+# Screenshots
+bindsym F12 exec scrot $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Mod1+F12 exec scrot -u $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym Mod1+Shift+F12 exec scrot -s $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # And some nice fade in/out effects for things
 exec --no-startup-id compton -f -D 3 --backend glx
