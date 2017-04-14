@@ -2,5 +2,6 @@
 !/.config
 !/.config/i3
 !/.config/i3/**
+.config/i3/config
 !/.gitignore.d
 !/.gitignore.d/i3wm
