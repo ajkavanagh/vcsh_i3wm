@@ -236,12 +236,12 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%; exec
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Backlight controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Keyboard backlight controls
-bindsym XF86KbdBrightnessDown exec sudo /usr/local/bin/keyboard-backlight down
-bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/keyboard-backlight up
+#bindsym XF86KbdBrightnessDown exec sudo /usr/local/bin/keyboard-backlight down
+#bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/keyboard-backlight up
 
 
 # Mod+Shift+l == Lock screen.
@@ -254,7 +254,7 @@ assign [class="quassel"] $wm10
 exec --no-startup-id quasselclient
 
 # also push chrome always to wm1
-assign [class="Google-chrome"] $wm1
+#assign [class="Google-chrome"] $wm1
 
 # push a firefox evernote instance to 9
 assign [class="evernote"] $wm9
