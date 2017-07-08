@@ -32,7 +32,7 @@ font pango:System San Francisco Display 11
 floating_modifier $mod
 
 # Let's have some bigger borders
-new_window pixel 3
+new_window pixel 5
 hide_edge_borders none
 
 # Alt + button1 == rightclick
@@ -193,7 +193,7 @@ bar {
         font xft:System San Francisco Display 8, FontAwesome 8
         #status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output primary
+        #tray_output primary
 	position top
 	colors {
                 background #232323
@@ -288,3 +288,7 @@ bindsym Mod1+Shift+F12 exec scrot -s $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%
 
 # And some nice fade in/out effects for things
 exec --no-startup-id compton -f -D 3 --backend glx
+
+# And start the syncthing synchroniser
+exec --no-startup-id /usr/bin/syncthing  -no-browser
+exec --no-startup-id /usr/bin/syncthing-inotify
