@@ -250,7 +250,7 @@ bindsym $mod+Shift+x exec --no-startup-id "~/bin/fuzzy-lock.sh"
 exec --no-startup-id xautolock -time 15 -locker '~/bin/fuzzy-lock.sh' &
 
 # We pretty much always want quasselclient running, and on it's desktop
-assign [class="quassel"] $wm10
+assign [class="quassel"] $wm1
 exec --no-startup-id quasselclient
 
 # also push chrome always to wm1
@@ -266,6 +266,15 @@ exec --no-startup-id /usr/bin/nixnote2
 # push Zim to screen 9 too
 assign [class="Zim"] $wm9
 exec --no-startup-id /usr/bin/zim
+
+# push Telegram to screen 10
+assign [class="Telegram"] $wm10
+exec --no-startup-id /home/alex/bin/Telegram
+
+# push Gitter to screen 10; note Braindead Gitter doesn't assign a class, we'll have to physically place it
+#assign [title="Gitter"] $wm10
+for_window [title="Gitter"] move to workspace $wm10
+exec --no-startup-id /usr/local/bin/gitter
 
 # ensure that pavucontrol ends up in a floating window
 for_window [class="Pavucontrol"] floating enable
