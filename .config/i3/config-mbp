@@ -221,7 +221,7 @@ client.background       #ffffff
 exec_always --no-startup-id synclient VertScrollDelta=-113
 
 # We also like the CapsLock key to be an escape.
-exec --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id setxkbmap -option caps:escape -option compose:rwin
 
 # we like to have nm-applet running
 exec --no-startup-id xrandr --output LVDS1 --primary
