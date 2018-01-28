@@ -321,4 +321,3 @@ exec --no-startup-id compton -f -D 3 --backend glx
 
 # And start the syncthing synchroniser
 exec --no-startup-id /usr/bin/syncthing  -no-browser
-exec --no-startup-id /usr/bin/syncthing-inotify
