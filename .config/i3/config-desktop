@@ -247,7 +247,8 @@ exec --no-startup-id xrandr --output LVDS1 --primary
 exec --no-startup-id nm-applet
 
 # need the gnome-settings-daemon
-exec --no-startup-id gnome-settings-daemon
+#exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 # Now enable multimedia keys (we use pulseaudio)
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
