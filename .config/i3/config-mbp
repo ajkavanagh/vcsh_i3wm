@@ -92,6 +92,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+t layout splitv
 
 # default is stacking, as this is for the MacBook pro
 workspace_layout stacking
