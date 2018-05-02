@@ -161,6 +161,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# and we want a nagbar to put the machine to sleep (now that it works)
+bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'Do you really want to sleep?' -b 'Yes, go to sleep' 'killall i3-nagbar; systemctl suspend'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -291,10 +294,11 @@ exec --no-startup-id /usr/bin/zim
 assign [class="Telegram"] $wm10
 exec --no-startup-id /home/alex/bin/Telegram
 
+# not using gitter at present; switching to irc and grabbing gitter channels that way.
 # push Gitter to screen 10; note Braindead Gitter doesn't assign a class, we'll have to physically place it
 #assign [title="Gitter"] $wm10
-for_window [title="Gitter"] move to workspace $wm10
-exec --no-startup-id /usr/local/bin/gitter
+#for_window [title="Gitter"] move to workspace $wm10
+#exec --no-startup-id /usr/local/bin/gitter
 
 # ensure that pavucontrol ends up in a floating window
 for_window [class="Pavucontrol"] floating enable
