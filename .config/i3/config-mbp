@@ -195,9 +195,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         font xft:System San Francisco Display 8, FontAwesome 8
+	#i3bar_command i3bar -t
         #status_command i3status
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output primary
+        #tray_output primary
+	tray_padding 0
+	#height 20
 	position top
 	colors {
                 background #232323
@@ -222,7 +225,7 @@ client.background       #ffffff
 #client.urgent           #900000 #900000 #ffffff #2b2b2b
 
 # we like Natural scrolling a la Mac, so set it up.
-exec_always --no-startup-id synclient VertScrollDelta=-113
+exec_always --no-startup-id synclient VertScrollDelta=-113 PalmDetect=1
 
 # We also like the CapsLock key to be an escape.
 exec --no-startup-id setxkbmap -option caps:escape -option compose:rwin
@@ -244,8 +247,13 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Keyboard backlight controls
-bindsym XF86KbdBrightnessDown exec sudo /usr/local/bin/keyboard-backlight down
-bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/keyboard-backlight up
+#bindsym XF86KbdBrightnessDown exec sudo /usr/local/bin/keyboard-backlight down
+#bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/keyboard-backlight up
+bindsym XF86KbdBrightnessDown exec sudo /usr/local/bin/rbacklight dec
+bindsym XF86KbdBrightnessUp exec sudo /usr/local/bin/rbacklight inc
+# temporary brightness whilst I sort the keys out
+bindsym $mod+$alt+2 exec /usr/local/bin/rbacklight inc
+bindsym $mod+$alt+1 exec /usr/local/bin/rbacklight dec
 
 
 # Mod+Shift+l == Lock screen.
