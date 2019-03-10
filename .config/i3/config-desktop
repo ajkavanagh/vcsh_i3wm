@@ -308,7 +308,7 @@ bindsym $mod+shift+v exec --no-startup-id /usr/bin/pavucontrol --tab 3
 bindsym $mod+shift+p exec --no-startup-id /usr/bin/pavucontrol --tab 1
 
 # Start dropbox when we log in
-exec --no-startup-id dropbox start
+exec --no-startup-id dbus-launch dropbox start
 
 # Start redshift so that we save our eyes in the evening
 exec --no-startup-id /usr/bin/redshift-gtk
