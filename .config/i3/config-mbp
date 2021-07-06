@@ -32,7 +32,7 @@ font pango:System San Francisco Display 11
 floating_modifier $mod
 
 # Let's have some bigger borders
-new_window pixel 3
+new_window pixel 10
 hide_edge_borders none
 
 # Alt + button1 == rightclick
@@ -160,7 +160,10 @@ bindsym $mod+Ctrl+Left  move workspace to output left
 bindsym $mod+Ctrl+Right move workspace to output right
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
+# TEMPORARY assignment:
+# Force a detect and update - used for changing monitors
+bindsym $mod+shift+c exec --no-startup-id /usr/bin/autorandr -c
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -289,7 +292,7 @@ assign [class="quassel"] $wm10
 exec --no-startup-id quasselclient
 
 # also push chrome always to wm1
-assign [class="Google-chrome"] $wm1
+# assign [class="Google-chrome"] $wm1
 
 # push a firefox evernote instance to 9
 assign [class="evernote"] $wm9
@@ -321,5 +324,11 @@ bindsym F12 exec scrot $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+F12 exec scrot -u $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym Mod1+Shift+F12 exec scrot -s $HOME/Dropbox/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
-# And some nice fade in/out effects for things
-exec --no-startup-id compton -f -D 3 --backend glx
+# Scratchpad
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+BackSpace scratchpad show
+bindsym $mod+backslash [class="Alacritty"] scratchpad show
+# maybe do the volume this way?
+
+# And some nice fade in/out effects for things - DISABLED for performance
+# exec --no-startup-id compton -f -D 3 --backend glx
