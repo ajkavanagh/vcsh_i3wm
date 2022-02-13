@@ -141,16 +141,16 @@ bindsym $mod+Tab workspace back_and_forth
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $wm1
-bindsym $mod+Shift+2 move container to workspace $wm2
-bindsym $mod+Shift+3 move container to workspace $wm3
-bindsym $mod+Shift+4 move container to workspace $wm4
-bindsym $mod+Shift+5 move container to workspace $wm5
-bindsym $mod+Shift+6 move container to workspace $wm6
-bindsym $mod+Shift+7 move container to workspace $wm7
-bindsym $mod+Shift+8 move container to workspace $wm8
-bindsym $mod+Shift+9 move container to workspace $wm9
-bindsym $mod+Shift+0 move container to workspace $wm10
+bindsym $mod+Shift+1 move container to workspace $wm1; workspace $wm1
+bindsym $mod+Shift+2 move container to workspace $wm2; workspace $wm2
+bindsym $mod+Shift+3 move container to workspace $wm3; workspace $wm3
+bindsym $mod+Shift+4 move container to workspace $wm4; workspace $wm4
+bindsym $mod+Shift+5 move container to workspace $wm5; workspace $wm5
+bindsym $mod+Shift+6 move container to workspace $wm6; workspace $wm6
+bindsym $mod+Shift+7 move container to workspace $wm7; workspace $wm7
+bindsym $mod+Shift+8 move container to workspace $wm8; workspace $wm8
+bindsym $mod+Shift+9 move container to workspace $wm9; workspace $wm9
+bindsym $mod+Shift+0 move container to workspace $wm10; workspace $wm10
 
 # Switch to a workspace to the left or right on the same output
 bindsym $mod+$alt+Right workspace next_on_output
